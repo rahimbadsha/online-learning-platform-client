@@ -7,7 +7,7 @@ const MyCourse = () => {
   const {user, loading} = use(AuthContext)
   const [courses, setCourses] = useState([]);
 
-  // fetch courses by login user's email
+  // fetch courses by login user email
   useEffect(() => {
     if (!loading && user?.email) {
       fetch(`http://localhost:3000/courses?email=${user.email}`)
@@ -15,7 +15,7 @@ const MyCourse = () => {
         .then((data) => setCourses(data))
         .catch((err) => console.error(err));
     }
-  }, [user, loading]);
+  }, [user?.email, loading]);
 
   // delete course
   const handleDeleteBtn = (id) => {
@@ -29,25 +29,33 @@ const MyCourse = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/courses/${id}`, {
+        fetch(`http://localhost:3000/delete-course/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount > 0) {
-              setCourses(courses.filter((course) => course._id !== id));
+            console.log("after delete", data);
+            if (data.deletedCount) {
+              const remainingCourses = courses.filter(
+                (course) => course._id !== id
+              );
+              setCourses(remainingCourses);
               Swal.fire("Deleted!", "Your course has been deleted.", "success");
             }
+          })
+          .catch((err) => {
+            console.error(err);
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Something went wrong while deleting the course.",
+            });
           });
       }
     });
   };
 
 
-  // update
-  const handleUpdateBtn = (id) => {
-    window.location.href = `/update-course/${id}`; // or navigate(`/update-course/${id}`)
-  };
 
   if (loading) {
     return (
@@ -103,7 +111,6 @@ const MyCourse = () => {
                   View
                 </Link>
                 <button
-                  onClick={() => handleUpdateBtn(course._id)}
                   className="btn btn-sm bg-info text-white hover:bg-info/90"
                 >
                   Update
