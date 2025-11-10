@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import AuthContext from "../context/AuthContext";
+import { IoStar } from "react-icons/io5";
+import { HiUsers } from "react-icons/hi";
 
 const CourseDetails = () => {
   
@@ -82,8 +84,13 @@ const CourseDetails = () => {
 
           {/* Stats */}
           <div className="flex gap-6 mt-4">
-            <p>Rating: {course.rating} ⭐</p>
-            <p>Enrolled: {course.enrolledStudents}</p>
+            <p className="flex gap-1 items-center">
+              Rating: {course.rating} <IoStar />
+            </p>
+            <p className="flex items-center gap-1">
+              Enrolled: <HiUsers />
+              {course.enrolledStudents}
+            </p>
             {course.isFeatured && (
               <span className="badge badge-primary">Featured</span>
             )}
