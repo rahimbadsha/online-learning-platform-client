@@ -26,7 +26,7 @@ const CourseDetails = () => {
   }, [id]);
 
   // Enroll handler
-  const handleEnroll = () => {
+  const handleEnrollBtn = () => {
     // Placeholder: just toast success
     Swal.fire({
       icon: "success",
@@ -34,7 +34,6 @@ const CourseDetails = () => {
       showConfirmButton: false,
       timer: 1500,
     });
-
   };
 
   if (loading)
@@ -91,7 +90,7 @@ const CourseDetails = () => {
           </div>
 
           {/* Enroll Button */}
-          <button onClick={handleEnroll} className="btn btn-primary mt-6">
+          <button onClick={handleEnrollBtn} className="btn btn-primary mt-6">
             Enroll Now
           </button>
         </div>

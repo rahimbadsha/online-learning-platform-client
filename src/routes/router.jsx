@@ -21,9 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: (
-            <Course></Course>
-        ),
+        element: <Course></Course>,
       },
       {
         path: "/courses/:id",
@@ -33,13 +31,11 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/add-course",
+        element: <AddCourse></AddCourse>,
+      },
     ],
-  },
-  {
-    path: '/add-course',
-    element: (
-        <AddCourse></AddCourse>
-    )
   },
   {
     path: "/auth",
