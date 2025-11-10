@@ -104,13 +104,13 @@ const MyCourse = () => {
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                 <Link
-                  to={`/course-details/${course._id}`}
+                  to={`courses/course-details/${course._id}`}
                   className="btn btn-sm bg-white text-black hover:bg-primary hover:text-white"
                 >
                   View
                 </Link>
                 <Link
-                  to={`/update-course/${course._id}`}
+                  to={`courses/update-course/${course._id}`}
                   className="btn btn-sm bg-info text-white hover:bg-info/90"
                 >
                   Update

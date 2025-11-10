@@ -50,12 +50,12 @@ const Navbar = () => {
               : "hover:text-primary transition-colors"
           }
         >
-          Courses
+          All Courses
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/add-course"
+          to="courses/add-course"
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold"
@@ -67,7 +67,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/my-course"
+          to="courses/my-course"
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold"
@@ -77,21 +77,6 @@ const Navbar = () => {
           My Course
         </NavLink>
       </li>
-
-      {user && (
-        <li>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-semibold"
-                : "hover:text-primary transition-colors"
-            }
-          >
-            Dashboard
-          </NavLink>
-        </li>
-      )}
     </>
   );
 

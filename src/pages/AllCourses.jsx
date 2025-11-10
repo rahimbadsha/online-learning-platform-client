@@ -111,7 +111,7 @@ const AllCourses = () => {
 
                 <div className="card-actions justify-end mt-4">
                   <Link
-                    to={`/course-details/${course._id}`}
+                    to={`courses/course-details/${course._id}`}
                     className="btn btn-primary btn-sm"
                   >
                     View Details

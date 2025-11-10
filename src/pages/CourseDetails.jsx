@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import AuthContext from "../context/AuthContext";
 import { IoStar } from "react-icons/io5";
 import { HiUsers } from "react-icons/hi";
 

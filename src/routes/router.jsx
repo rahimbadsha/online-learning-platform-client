@@ -1,7 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
-import HomeHero from "../components/HomeHero";
-import Course from "../pages/AllCourses";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
@@ -11,6 +9,9 @@ import CourseDetails from "../pages/CourseDetails";
 import AddCourse from "../layouts/AddCourse";
 import MyCourse from "../pages/MyCourse";
 import CourseUpdate from "../pages/CourseUpdate";
+import PopularCourses from "../components/PopularCourses";
+import AllCourses from "../pages/AllCourses";
+import CoursesLayouts from "../layouts/CoursesLayouts";
 
 const router = createBrowserRouter([
   {
@@ -19,14 +20,20 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomeHero></HomeHero>,
+        element: <PopularCourses></PopularCourses>,
       },
+    ],
+  },
+  {
+    path: "/courses",
+    element: <CoursesLayouts></CoursesLayouts>,
+    children: [
+        {
+            index: true,
+            element: <AllCourses></AllCourses>
+        },
       {
-        path: "/courses",
-        element: <Course></Course>,
-      },
-      {
-        path: "/course-details/:id",
+        path: "courses/course-details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/course-details/${params.id}`),
         element: (
@@ -36,7 +43,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/update-course/:id",
+        path: "courses/update-course/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/update-course/${params.id}`),
         element: (
@@ -46,7 +53,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-course",
+        path: "courses/add-course",
         element: (
           <PrivateRoute>
             <AddCourse></AddCourse>
@@ -54,7 +61,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-course",
+        path: "courses/my-course",
         element: (
           <PrivateRoute>
             <MyCourse></MyCourse>

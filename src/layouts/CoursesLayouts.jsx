@@ -1,22 +1,17 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
-import HomeHero from '../components/HomeHero';
-import PopularCourses from '../components/PopularCourses';
+import AllCourses from '../pages/AllCourses';
 import Footer from '../pages/Footer';
 
-const HomeLayout = () => {
+const CoursesLayouts = () => {
     return (
       <div>
-        <header>
-          <Navbar></Navbar>
-        </header>
-        <HomeHero></HomeHero>
-
+        <Navbar></Navbar>
         <Outlet></Outlet>
         <Footer></Footer>
       </div>
     );
 };
 
-export default HomeLayout;
+export default CoursesLayouts;

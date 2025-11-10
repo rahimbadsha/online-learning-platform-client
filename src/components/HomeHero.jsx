@@ -1,4 +1,3 @@
-// src/components/HomeHero.jsx
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -25,7 +24,7 @@ const HomeHero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000); // auto-slide every 5s
+    }, 5000); 
 
     return () => clearInterval(timer);
   }, []);
