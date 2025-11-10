@@ -9,6 +9,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import PrivateRoute from "../context/PrivateRoute";
 import CourseDetails from "../pages/CourseDetails";
 import AddCourse from "../layouts/AddCourse";
+import MyCourse from "../pages/MyCourse";
+import CourseUpdate from "../pages/CourseUpdate";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,9 @@ const router = createBrowserRouter([
         element: <Course></Course>,
       },
       {
-        path: "/courses/:id",
+        path: "/course-details/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/course-details/${params.id}`),
         element: (
           <PrivateRoute>
             <CourseDetails></CourseDetails>
@@ -32,8 +36,30 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/update-course/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/update-course/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <CourseUpdate></CourseUpdate>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/add-course",
-        element: <AddCourse></AddCourse>,
+        element: (
+          <PrivateRoute>
+            <AddCourse></AddCourse>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-course",
+        element: (
+          <PrivateRoute>
+            <MyCourse></MyCourse>
+          </PrivateRoute>
+        ),
       },
     ],
   },

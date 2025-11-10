@@ -65,6 +65,18 @@ const Navbar = () => {
           Add Course
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/my-course"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold"
+              : "hover:text-primary transition-colors"
+          }
+        >
+          My Course
+        </NavLink>
+      </li>
 
       {user && (
         <li>
