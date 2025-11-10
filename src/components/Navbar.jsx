@@ -1,14 +1,32 @@
-// src/components/Navbar.jsx
+import { use } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import Swal from "sweetalert2";
+import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
-  // Fake login state for now (will use Firebase later)
-  const [user] = useState({
-    name: "John Doe",
-    photoURL: "https://i.ibb.co/2d3vYvZ/default-avatar.png",
-  });
+  const {user, logOut} = use(AuthContext)
 
+  // Logout handler
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged out successfully!",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Logout failed!",
+          text: error.message,
+        });
+      });
+  };
+
+  // Navigation links
   const navLinks = (
     <>
       <li>
@@ -37,28 +55,31 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/about"
+          to="/add-course"
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold"
               : "hover:text-primary transition-colors"
           }
         >
-          About
+          Add Course
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors"
-          }
-        >
-          Contact
-        </NavLink>
-      </li>
+
+      {user && (
+        <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? "text-primary font-semibold"
+                : "hover:text-primary transition-colors"
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -88,19 +109,32 @@ const Navbar = () => {
               />
             </svg>
           </label>
+
+          {/* Mobile menu */}
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navLinks}
-            <li className="mt-2">
-              <Link
-                to="/auth/login"
-                className="btn btn-outline btn-primary btn-sm w-full"
-              >
-                Login
-              </Link>
-            </li>
+            {user ? (
+              <li className="mt-2">
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-outline btn-error btn-sm w-full"
+                >
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li className="mt-2">
+                <Link
+                  to="/auth/login"
+                  className="btn btn-outline btn-primary btn-sm w-full"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -113,48 +147,58 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Center Nav Links */}
+      {/* Center Links */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
 
-      {/* Right Section (Avatar + Login) */}
+      {/* Right Section */}
       <div className="navbar-end flex items-center gap-3">
-        {/* User Avatar */}
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={user?.photoURL} alt="User Avatar" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48"
+        {user ? (
+          // User logged in
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img
+                  src={
+                    user.photoURL ||
+                    "https://i.ibb.co/2d3vYvZ/default-avatar.png"
+                  }
+                  alt="User Avatar"
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48"
+            >
+              <li>
+                <span className="justify-between text-sm font-semibold">
+                  {user.displayName || "User"}
+                </span>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <button onClick={handleLogout} className="text-error">
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          // Not logged in
+          <Link
+            to="/auth/login"
+            className="btn btn-outline btn-primary btn-sm hidden lg:inline-flex"
           >
-            <li>
-              <span className="justify-between text-sm font-semibold">
-                {user?.name || "Guest User"}
-              </span>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <button className="text-error">Logout</button>
-            </li>
-          </ul>
-        </div>
-
-        {/* Login Button */}
-        <Link
-          to="/auth/login"
-          className="btn btn-outline btn-primary btn-sm hidden lg:inline-flex"
-        >
-          Login
-        </Link>
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
