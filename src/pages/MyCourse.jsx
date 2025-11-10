@@ -4,7 +4,7 @@ import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
 const MyCourse = () => {
-  const {user, loading} = use(AuthContext)
+  const { user, loading } = use(AuthContext);
   const [courses, setCourses] = useState([]);
 
   // fetch courses by login user email
@@ -56,7 +56,6 @@ const MyCourse = () => {
   };
 
 
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-96">
@@ -97,8 +96,8 @@ const MyCourse = () => {
                   {course.description}
                 </p>
                 <div className="flex justify-between items-center text-sm text-gray-700">
-                  <span>💲{course.price}</span>
-                  <span>⏱ {course.duration}</span>
+                  <span>$ {course.price}</span>
+                  <span> {course.duration}</span>
                 </div>
               </div>
 
@@ -110,11 +109,12 @@ const MyCourse = () => {
                 >
                   View
                 </Link>
-                <button
+                <Link
+                  to={`/update-course/${course._id}`}
                   className="btn btn-sm bg-info text-white hover:bg-info/90"
                 >
                   Update
-                </button>
+                </Link>
                 <button
                   onClick={() => handleDeleteBtn(course._id)}
                   className="btn btn-sm bg-error text-white hover:bg-error/90"
