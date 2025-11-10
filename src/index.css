@@ -1,2 +1,26 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import 'animate.css';
+
+@plugin "daisyui" {
+  themes: light --default
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #119fa1;
+  --color-secondary: #e97522;
+  --color-base-200: #F3F3F3;
+  --color-base-300: #E7E7E7;
+  --color-accent: #706F6F;
+}
+
+a.active{
+  @apply bg-secondary;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  text-decoration: underline;
+  color: white;
+}
