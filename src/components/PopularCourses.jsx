@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ImStarFull } from "react-icons/im";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -59,7 +60,7 @@ const PopularCourses = () => {
               <div className="mt-4 flex items-center justify-between">
                 <span className="font-bold text-lg">${course.price}</span>
                 <span className="badge badge-primary">
-                  {course.rating.toFixed(1)} ⭐
+                  {course.rating.toFixed(1)} <ImStarFull />
                 </span>
               </div>
 

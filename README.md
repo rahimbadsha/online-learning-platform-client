@@ -1,6 +1,6 @@
 # Learnify - Online Learning Platform
 
-[Live Site URL](http://localhost:5173/)
+[Live Site URL](https://learnify10.netlify.app/)
 
 Learnify is a modern online learning platform where instructors can create and manage courses, and users can explore popular courses to enhance their skills. This project leverages **React**, **Tailwind CSS**, **DaisyUI**, **Framer Motion**, and **MongoDB** for a fully responsive and dynamic experience.
 
