@@ -10,7 +10,7 @@ const MyCourse = () => {
   // fetch courses by login user email
   useEffect(() => {
     if (!loading && user?.email) {
-      fetch(`http://localhost:3000/courses?email=${user.email}`)
+      fetch(`http://localhost:3000/my-courses?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setCourses(data))
         .catch((err) => console.error(err));
