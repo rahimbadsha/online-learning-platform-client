@@ -6,7 +6,7 @@ import NotFound from "../pages/NotFound";
 import AuthLayout from "../layouts/AuthLayout";
 import PrivateRoute from "../context/PrivateRoute";
 import CourseDetails from "../pages/CourseDetails";
-import AddCourse from "../layouts/AddCourse";
+import AddCourse from "../pages/AddCourse";
 import MyCourse from "../pages/MyCourse";
 import CourseUpdate from "../pages/CourseUpdate";
 import PopularCourses from "../components/PopularCourses";
@@ -28,12 +28,12 @@ const router = createBrowserRouter([
     path: "/courses",
     element: <CoursesLayouts></CoursesLayouts>,
     children: [
-        {
-            index: true,
-            element: <AllCourses></AllCourses>
-        },
       {
-        path: "courses/course-details/:id",
+        index: true,
+        element: <AllCourses></AllCourses>,
+      },
+      {
+        path: "/courses/course-details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/course-details/${params.id}`),
         element: (
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "courses/update-course/:id",
+        path: "/courses/update-course/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/update-course/${params.id}`),
         element: (
@@ -52,23 +52,23 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "courses/add-course",
-        element: (
-          <PrivateRoute>
-            <AddCourse></AddCourse>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "courses/my-course",
-        element: (
-          <PrivateRoute>
-            <MyCourse></MyCourse>
-          </PrivateRoute>
-        ),
-      },
     ],
+  },
+  {
+    path: "/add-course",
+    element: (
+      <PrivateRoute>
+        <AddCourse></AddCourse>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/my-course",
+    element: (
+      <PrivateRoute>
+        <MyCourse></MyCourse>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/auth",

@@ -1,10 +1,20 @@
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
   const {user, logOut} = use(AuthContext)
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+useEffect(() => {
+  document.querySelector("html").setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}, [theme]);
+
+const toggleTheme = () => {
+  setTheme(theme === "light" ? "dark" : "light");
+};
 
   // Logout handler
   const handleLogout = () => {
@@ -55,7 +65,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="courses/add-course"
+          to="/add-course"
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold"
@@ -67,7 +77,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="courses/my-course"
+          to="/my-course"
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold"
@@ -175,10 +185,7 @@ const Navbar = () => {
                 </span>
               </li>
               <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/courses/my-course">My Course</Link>
               </li>
               <li>
                 <button onClick={handleLogout} className="text-error">
@@ -196,6 +203,33 @@ const Navbar = () => {
             Login
           </Link>
         )}
+        {/* Uiverse-inspired Theme Toggle */}
+        <label className="swap swap-rotate">
+          {/* this is hidden checkbox that controls the state */}
+          <input
+            type="checkbox"
+            onChange={toggleTheme}
+            checked={theme === "dark"}
+          />
+
+          {/* sun icon */}
+          <svg
+            className="swap-on fill-current w-8 h-8 text-yellow-400"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5.64 17.657l-1.414 1.414L7.05 22.89l1.414-1.414zM12 18a6 6 0 100-12 6 6 0 000 12zm7.657-1.343l1.414 1.414 2.828-2.828-1.414-1.414zM12 2h0v3h0zM12 19h0v3h0zM2 12h3v0H2zm19 0h3v0h-3z" />
+          </svg>
+
+          {/* moon icon */}
+          <svg
+            className="swap-off fill-current w-8 h-8 text-gray-300"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M21.64 13.65a9 9 0 01-11.3-11.3 1 1 0 00-1.42-1.42A10.978 10.978 0 0012 22a10.978 10.978 0 0011.07-8.94 1 1 0 00-1.43-1.41z" />
+          </svg>
+        </label>
       </div>
     </div>
   );

@@ -65,7 +65,7 @@ const PopularCourses = () => {
 
               <div className="card-actions mt-4">
                 <Link
-                  to={`/course-details/${course._id}`}
+                  to={`/courses/course-details/${course._id}`}
                   className="btn btn-outline btn-primary w-full"
                 >
                   View Details
