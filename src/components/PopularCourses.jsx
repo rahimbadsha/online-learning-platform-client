@@ -29,8 +29,8 @@ const PopularCourses = () => {
   }
 
   return (
-    <div className="py-16 px-4 md:px-12 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+    <div className="py-16 px-4 md:px-12 bg-base-200">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-base-content">
         Popular Courses
       </h2>
 
@@ -38,7 +38,7 @@ const PopularCourses = () => {
         {courses.map((course) => (
           <div
             key={course._id}
-            className="card bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 transform transition duration-300"
+            className="card bg-base-100 shadow-lg rounded-xl overflow-hidden hover:scale-105 transform transition duration-300"
           >
             <figure>
               <img
@@ -47,12 +47,12 @@ const PopularCourses = () => {
                 className="w-full h-48 object-cover"
               />
             </figure>
-            <div className="card-body">
+            <div className="card-body text-base-content">
               <h3 className="card-title text-xl font-semibold">
                 {course.title}
               </h3>
-              <p className="text-gray-600 text-sm">{course.category}</p>
-              <p className="text-gray-700 mt-2 line-clamp-3">
+              <p className="text-sm opacity-80">{course.category}</p>
+              <p className="opacity-90 mt-2 line-clamp-3">
                 {course.description}
               </p>
 

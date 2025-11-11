@@ -34,7 +34,6 @@ const MyCourse = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("after delete", data);
             if (data.deletedCount) {
               const remainingCourses = courses.filter(
                 (course) => course._id !== id
@@ -55,7 +54,6 @@ const MyCourse = () => {
     });
   };
 
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-96">
@@ -65,13 +63,13 @@ const MyCourse = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold mb-8 text-center">
+    <div className="max-w-7xl mx-auto px-4 py-10 bg-base-100 text-base-content transition-colors duration-300">
+      <h2 className="text-3xl font-bold mb-8 text-center text-primary">
         My Added Courses ({courses.length})
       </h2>
 
       {courses.length === 0 ? (
-        <p className="text-center text-gray-500 text-lg">
+        <p className="text-center text-base-content/70 text-lg">
           You haven’t added any courses yet.
         </p>
       ) : (
@@ -79,7 +77,7 @@ const MyCourse = () => {
           {courses.map((course) => (
             <div
               key={course._id}
-              className="relative group bg-base-100 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="relative group bg-base-200 text-base-content shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <figure>
                 <img
@@ -92,12 +90,12 @@ const MyCourse = () => {
                 <h2 className="text-lg font-semibold mb-2 line-clamp-1">
                   {course.title}
                 </h2>
-                <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                <p className="text-sm text-base-content/70 line-clamp-2 mb-3">
                   {course.description}
                 </p>
-                <div className="flex justify-between items-center text-sm text-gray-700">
+                <div className="flex justify-between items-center text-sm text-base-content/80">
                   <span>$ {course.price}</span>
-                  <span> {course.duration}</span>
+                  <span>{course.duration}</span>
                 </div>
               </div>
 

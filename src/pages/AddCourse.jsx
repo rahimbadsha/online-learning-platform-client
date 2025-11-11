@@ -23,7 +23,7 @@ const AddCourse = () => {
         name: user?.displayName,
         email: user?.email,
         photo: user?.photoURL,
-        bio: "Instructor from Learnify platform", // optional static bio
+        bio: "Instructor from Learnify platform",
       },
       rating: parseFloat(randomRating),
       enrolledStudents: randomStudents,
@@ -58,7 +58,7 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-base-100 shadow-lg p-8 rounded-lg mt-10">
+    <div className="max-w-3xl mx-auto bg-base-100 text-base-content shadow-lg p-8 rounded-lg mt-10 transition-colors duration-300">
       <h2 className="text-2xl font-bold text-center mb-6 text-primary">
         Add New Course
       </h2>
@@ -69,35 +69,35 @@ const AddCourse = () => {
             type="text"
             name="title"
             placeholder="Course Title"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-base-200 text-base-content"
             required
           />
           <input
             type="text"
             name="thumbnail"
             placeholder="Thumbnail Image URL"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-base-200 text-base-content"
             required
           />
           <input
             type="number"
             name="price"
             placeholder="Price (USD)"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-base-200 text-base-content"
             required
           />
           <input
             type="text"
             name="duration"
             placeholder="Duration (e.g. 6 weeks)"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-base-200 text-base-content"
             required
           />
           <input
             type="text"
             name="category"
             placeholder="Category (e.g. Web Development)"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-base-200 text-base-content"
             required
           />
         </div>
@@ -105,12 +105,12 @@ const AddCourse = () => {
         <textarea
           name="description"
           placeholder="Course Description"
-          className="textarea textarea-bordered w-full"
+          className="textarea textarea-bordered w-full bg-base-200 text-base-content"
           rows="4"
           required
         ></textarea>
 
-        <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex items-center gap-2 cursor-pointer text-base-content">
           <input type="checkbox" name="isFeatured" className="checkbox" />
           <span>Mark as Featured</span>
         </label>
@@ -118,7 +118,7 @@ const AddCourse = () => {
         <div className="divider"></div>
 
         {/* instructor details from firebase */}
-        <div className="p-4 bg-base-200 rounded-lg">
+        <div className="p-4 bg-base-200 rounded-lg text-base-content">
           <h3 className="font-semibold mb-2">Instructor Details</h3>
           <p>
             <strong>Name:</strong> {user?.displayName || "Anonymous"}

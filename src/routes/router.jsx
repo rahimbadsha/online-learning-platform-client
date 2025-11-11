@@ -12,6 +12,8 @@ import CourseUpdate from "../pages/CourseUpdate";
 import PopularCourses from "../components/PopularCourses";
 import AllCourses from "../pages/AllCourses";
 import CoursesLayouts from "../layouts/CoursesLayouts";
+import AddCourseLayout from "../layouts/AddCourseLayout";
+import MyCoursesLayout from "../layouts/MyCoursesLayout";
 
 const router = createBrowserRouter([
   {
@@ -56,19 +58,31 @@ const router = createBrowserRouter([
   },
   {
     path: "/add-course",
-    element: (
-      <PrivateRoute>
-        <AddCourse></AddCourse>
-      </PrivateRoute>
-    ),
+    element: <AddCourseLayout></AddCourseLayout>,
+    children: [
+      {
+        index: true,
+        element: (
+          <PrivateRoute>
+            <AddCourse></AddCourse>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/my-course",
-    element: (
-      <PrivateRoute>
-        <MyCourse></MyCourse>
-      </PrivateRoute>
-    ),
+    element: <MyCoursesLayout></MyCoursesLayout>,
+    children: [
+      {
+        index: true,
+        element: (
+          <PrivateRoute>
+            <MyCourse></MyCourse>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/auth",

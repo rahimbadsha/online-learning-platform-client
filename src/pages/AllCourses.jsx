@@ -42,13 +42,10 @@ const AllCourses = () => {
     setFiltered(filterCourse);
   }, [search, category, courses]);
 
-  if (loading)
-    return (
-      <Loading></Loading>
-    );
+  if (loading) return <Loading />;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-base-200 text-base-content transition-colors duration-300">
       <h2 className="text-3xl font-bold mb-6 text-center">All Courses</h2>
 
       {/* Filters */}
@@ -56,13 +53,13 @@ const AllCourses = () => {
         <input
           type="text"
           placeholder="Search course..."
-          className="input input-bordered w-full md:w-1/3"
+          className="input input-bordered w-full md:w-1/3 bg-base-100 text-base-content"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
-          className="select select-bordered w-full md:w-1/4"
+          className="select select-bordered w-full md:w-1/4 bg-base-100 text-base-content"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
@@ -76,7 +73,7 @@ const AllCourses = () => {
 
       {/* Grid */}
       {filtered.length === 0 ? (
-        <p className="text-center text-gray-500">No courses found.</p>
+        <p className="text-center text-base-content/70">No courses found.</p>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((course) => (
@@ -92,11 +89,13 @@ const AllCourses = () => {
                 />
               </figure>
               <div className="card-body">
-                <h3 className="card-title">{course.title}</h3>
-                <p className="text-sm text-gray-600">
+                <h3 className="card-title text-base-content">{course.title}</h3>
+                <p className="text-sm text-base-content/70">
                   {course.category} • {course.duration}
                 </p>
-                <p className="font-semibold">${course.price}</p>
+                <p className="font-semibold text-base-content">
+                  ${course.price}
+                </p>
 
                 <div className="flex items-center gap-2 mt-2">
                   <img
@@ -104,14 +103,14 @@ const AllCourses = () => {
                     alt={course.instructor?.name}
                     className="w-8 h-8 rounded-full"
                   />
-                  <span className="text-sm text-gray-700">
+                  <span className="text-sm text-base-content/80">
                     {course.instructor?.name}
                   </span>
                 </div>
 
                 <div className="card-actions justify-end mt-4">
                   <Link
-                    to={`courses/course-details/${course._id}`}
+                    to={`/courses/course-details/${course._id}`}
                     className="btn btn-primary btn-sm"
                   >
                     View Details
