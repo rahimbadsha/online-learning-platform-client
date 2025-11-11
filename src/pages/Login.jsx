@@ -29,7 +29,7 @@ const Login = () => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "Oops...Sorry, Can't Login",
         text: error.message,
       });
     }
@@ -54,7 +54,7 @@ const Login = () => {
 
       Swal.fire({
         icon: "success",
-        title: "Logged in with Google!",
+        title: "Logged in Success!",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -63,7 +63,7 @@ const Login = () => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "Oops...Try Again!",
         text: error.message,
       });
     }

@@ -82,7 +82,7 @@ const Register = () => {
 
       Swal.fire({
         icon: "success",
-        title: "Logged in with Google!",
+        title: "Logged in Success!",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -91,7 +91,7 @@ const Register = () => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "Oops...Unable To Register",
         text: error.message,
       });
     }
