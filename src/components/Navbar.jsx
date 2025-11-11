@@ -185,7 +185,7 @@ const toggleTheme = () => {
                 </span>
               </li>
               <li>
-                <Link to="/courses/my-course">My Course</Link>
+                <Link to="/my-course">My Course</Link>
               </li>
               <li>
                 <button onClick={handleLogout} className="text-error">

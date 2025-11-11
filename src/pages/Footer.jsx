@@ -2,47 +2,67 @@ import React from "react";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { TbBrandLinkedin } from "react-icons/tb";
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; 
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer footer-horizontal footer-center bg-light dark:bg-base-200 py-10 text-base-content dark:text-gray-300 rounded p-10">
-        <nav className="grid grid-flow-col gap-4">
-          <a className="link link-hover">Privacy Policy</a>
-          <a className="link link-hover">Terms And Conditions</a>
-        </nav>
+    <footer
+      // bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100
+    //   dark:from-base-bg
+    //   dark:via-base-100
+    //   dark:to-base-300
+    //   py-10
+    //   text-base-content
+    //   dark:text-base
+      className="footer footer-horizontal footer-center bg-base-100
+   rounded-t-2xl p-10 transition-all duration-500
+"
+    >
+      {/* Navigation Links */}
+      <nav className="grid grid-flow-col gap-4">
+        <a className="link link-hover">Privacy Policy</a>
+        <a className="link link-hover">Terms And Conditions</a>
+      </nav>
 
-        <nav>
-          <div>
-            <div className="grid grid-flow-col gap-2 justify-center items-center">
-              <Link to={"https://www.facebook.com/abd.rahim.badsha/"}>
-                <FaFacebook className="hover:text-primary transition-colors duration-300" />
-              </Link>
-              <Link to={"https://www.linkedin.com/in/abdrahimbd/"}>
-                <TbBrandLinkedin className="hover:text-primary transition-colors duration-300" />
-              </Link>
+      {/* Social Links */}
+      <nav>
+        <div className="grid grid-flow-row gap-3 justify-center items-center">
+          <div className="grid grid-flow-col gap-4 justify-center items-center text-xl">
+            <Link
+              to="https://www.facebook.com/abd.rahim.badsha/"
+              target="_blank"
+            >
+              <FaFacebook className="hover:text-primary transition-colors duration-300" />
+            </Link>
+            <Link to="https://www.linkedin.com/in/abdrahimbd/" target="_blank">
+              <TbBrandLinkedin className="hover:text-primary transition-colors duration-300" />
+            </Link>
+            <Link to="https://www.youtube.com/" target="_blank">
               <IoLogoYoutube className="hover:text-red-500 transition-colors duration-300" />
-            </div>
-
-            <div>
-              <p className="text-center pt-3">
-                <strong>Email: </strong>rahimbadsha.cse@gmail.com
-              </p>
-            </div>
+            </Link>
           </div>
-        </nav>
 
-        <aside>
-          <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by{" "}
-            <span className="font-semibold text-primary">
-              <Link to={'https://www.facebook.com/abd.rahim.badsha/'} >Abdur Rahim</Link>
-            </span>
+          <p className="text-center pt-3">
+            <strong>Email:</strong> rahimbadsha.cse@gmail.com
           </p>
-        </aside>
-      </footer>
-    </div>
+        </div>
+      </nav>
+
+      {/* Footer Text */}
+      <aside className="mt-3">
+        <p>
+          Copyright © {new Date().getFullYear()} - All rights reserved by{" "}
+          <span className="font-semibold text-primary">
+            <Link
+              to="https://www.facebook.com/abd.rahim.badsha/"
+              target="_blank"
+            >
+              Abdur Rahim
+            </Link>
+          </span>
+        </p>
+      </aside>
+    </footer>
   );
 };
 

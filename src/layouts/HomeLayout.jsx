@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom';
 import HomeHero from '../components/HomeHero';
 import PopularCourses from '../components/PopularCourses';
 import Footer from '../pages/Footer';
+import WhyChooseUs from '../components/WhyChooseUs';
+import TopInstructors from '../components/TopInstructors';
 
 const HomeLayout = () => {
     return (
@@ -14,6 +16,9 @@ const HomeLayout = () => {
         <HomeHero></HomeHero>
 
         <Outlet></Outlet>
+
+        <WhyChooseUs></WhyChooseUs>
+        <TopInstructors></TopInstructors>
         <Footer></Footer>
       </div>
     );
