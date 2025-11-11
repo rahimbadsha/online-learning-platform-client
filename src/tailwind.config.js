@@ -33,6 +33,7 @@ export default {
           success: "#10B981",
           warning: "#F59E0B",
           error: "#EF4444",
+          baseBg: "#0f172a",
         },
       },
       "light", // fallback

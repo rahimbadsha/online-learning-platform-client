@@ -14,12 +14,12 @@ const Footer = () => {
       //   py-10
       //   text-base-content
       //   dark:text-base
-      className="footer footer-horizontal footer-center bg-base-100
-   rounded-t-2xl p-10 transition-all duration-500
-"
+      className="footer footer-horizontal footer-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
+                dark:from-gray-800 dark:via-gray-900 dark:to-gray-700
+                transition-colors duration-500 py-10 mt-10 text-base-100"
     >
       {/* brand logo */}
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <Link
           to="/"
           className="flex items-center text-2xl font-bold text-primary ml-2 hover:opacity-90"
@@ -34,7 +34,7 @@ const Footer = () => {
       </div>
 
       {/* Navigation Links */}
-      <nav className="grid grid-flow-col gap-4">
+      <nav className="grid grid-flow-col gap-4 ">
         <a className="link link-hover">Privacy Policy</a>
         <a className="link link-hover">Terms And Conditions</a>
       </nav>
@@ -62,6 +62,8 @@ const Footer = () => {
           </p>
         </div>
       </nav>
+
+      <div className="divider h-[2px] w-full p-0 m-0 "></div>
 
       {/* Footer Text */}
       <aside className="mt-3">

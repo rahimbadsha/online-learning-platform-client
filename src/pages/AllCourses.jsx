@@ -45,7 +45,7 @@ const AllCourses = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-base-200 text-base-content transition-colors duration-300">
+    <div className="container mx-auto px-4 py-8  text-base-content transition-colors duration-300">
       <h2 className="text-3xl font-bold mb-6 text-center">All Courses</h2>
 
       {/* Filters */}
