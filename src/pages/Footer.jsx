@@ -8,16 +8,31 @@ const Footer = () => {
   return (
     <footer
       // bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100
-    //   dark:from-base-bg
-    //   dark:via-base-100
-    //   dark:to-base-300
-    //   py-10
-    //   text-base-content
-    //   dark:text-base
+      //   dark:from-base-bg
+      //   dark:via-base-100
+      //   dark:to-base-300
+      //   py-10
+      //   text-base-content
+      //   dark:text-base
       className="footer footer-horizontal footer-center bg-base-100
    rounded-t-2xl p-10 transition-all duration-500
 "
     >
+      {/* brand logo */}
+      <div className="flex items-center">
+        <Link
+          to="/"
+          className="flex items-center text-2xl font-bold text-primary ml-2 hover:opacity-90"
+        >
+          <img
+            className="w-[30px] h-[30px] mr-2"
+            src="https://i.ibb.co/NRcbWqm/favicon.png"
+            alt="Learnify logo"
+          />
+          Learnify
+        </Link>
+      </div>
+
       {/* Navigation Links */}
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">Privacy Policy</a>

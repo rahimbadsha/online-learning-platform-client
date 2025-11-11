@@ -147,12 +147,19 @@ const toggleTheme = () => {
         </div>
 
         {/* Brand Logo */}
-        <Link
-          to="/"
-          className="text-2xl font-bold text-primary ml-2 hover:opacity-90"
-        >
-          Learnify
-        </Link>
+        <div className="flex items-center">
+          <Link
+            to="/"
+            className="flex items-center text-2xl font-bold text-primary ml-2 hover:opacity-90"
+          >
+            <img
+              className="w-[30px] h-[30px] mr-2"
+              src="https://i.ibb.co/NRcbWqm/favicon.png"
+              alt="Learnify logo"
+            />
+            Learnify
+          </Link>
+        </div>
       </div>
 
       {/* Center Links */}

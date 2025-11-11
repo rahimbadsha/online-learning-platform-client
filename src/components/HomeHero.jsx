@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
     title: "Master Modern Web Development",
     subtitle: "Learn React, Node.js, and more from industry experts.",
-    bg: "bg-[url('https://i.ibb.co/rRdTS90B/wave-haikei.png')] bg-cover bg-center",
+    // bg: "bg-[url('https://i.ibb.co/rRdTS90B/wave-haikei.png')] bg-cover bg-center",
+    // bg: "bg-gradient-to-r from-[#53255d] via-[#3d1d46] to-[#3d1d46]",
+    bg: "bg-gradient-to-r from-blue-500 via-indigo-400 to-purple-500",
     textColor: "text-white",
     illustration: "https://i.ibb.co/67zmGg6y/learning.png",
   },
@@ -52,9 +55,9 @@ const HomeHero = () => {
             >
               {slides[current].subtitle}
             </p>
-            <button className="btn btn-primary btn-lg mt-6">
+            <Link to={"/courses"} className="btn btn-primary btn-lg mt-6">
               Explore Courses
-            </button>
+            </Link>
           </div>
 
           {/* Illustration */}
