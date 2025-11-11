@@ -1,16 +1,31 @@
-# React + Vite
+# Learnify - Online Learning Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Site URL](http://localhost:5173/)
 
-Currently, two official plugins are available:
+Learnify is a modern online learning platform where instructors can create and manage courses, and users can explore popular courses to enhance their skills. This project leverages **React**, **Tailwind CSS**, **DaisyUI**, **Framer Motion**, and **MongoDB** for a fully responsive and dynamic experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Instructor Course Management**: Instructors can add, update, and delete their courses with detailed information including title, category, duration, price, and description.  
+- **Course Exploration**: Users can view all available courses, filter by category, and search courses by title.  
+- **Popular & Featured Courses**: Display top-rated and featured courses dynamically based on ratings.  
+- **Course Details & Enrollment**: Detailed course pages with an option to "Enroll Now" and a smooth toast notification for confirmation.  
+- **Responsive & Animated UI**: Fully responsive design using Tailwind CSS and DaisyUI, with animations powered by Framer Motion and AOS for engaging transitions.  
+- **Dark/Light Theme Toggle**: Users can switch between dark and light mode across all pages and sections.  
+- **Firebase Authentication**: User registration and login are handled with Firebase, including automatic instructor details for course creation.  
+- **Real-time Loading & Feedback**: Loading spinners and SweetAlert2 toasts ensure smooth user experience during data fetching and operations.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React, Tailwind CSS, DaisyUI, Framer Motion, React Router  
+- **Backend**: Node.js, Express  
+- **Database**: MongoDB  
+- **Authentication**: Firebase  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Screenshots
+
+*(Add screenshots of Home, All Courses, Popular Courses, Add Course, My Courses, Course Details)*
+
+---
+
+This platform aims to provide a seamless experience for both instructors and learners, combining robust functionality with a modern, animated UI.
