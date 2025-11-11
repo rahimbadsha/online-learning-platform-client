@@ -1,11 +1,12 @@
 import { use, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
   const {user, logOut} = use(AuthContext)
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const navigate = useNavigate();
 
 useEffect(() => {
   document.querySelector("html").setAttribute("data-theme", theme);
@@ -26,6 +27,7 @@ const toggleTheme = () => {
           timer: 1500,
           showConfirmButton: false,
         });
+        navigate("/auth/login")
       })
       .catch((error) => {
         Swal.fire({
