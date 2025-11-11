@@ -65,7 +65,7 @@ const MyCourse = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 bg-base-100 text-base-content transition-colors duration-300">
       <h2 className="text-3xl font-bold mb-8 text-center text-primary">
-        My Added Courses ({courses.length})
+        My Added Courses 
       </h2>
 
       {courses.length === 0 ? (

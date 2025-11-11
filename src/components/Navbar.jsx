@@ -65,18 +65,6 @@ const toggleTheme = () => {
       </li>
       <li>
         <NavLink
-          to="/add-course"
-          className={({ isActive }) =>
-            isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors"
-          }
-        >
-          Add Course
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
           to="/my-course"
           className={({ isActive }) =>
             isActive
@@ -85,6 +73,19 @@ const toggleTheme = () => {
           }
         >
           My Course
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/add-course"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold"
+              : "hover:text-primary transition-colors"
+          }
+        >
+          Add Course
         </NavLink>
       </li>
     </>

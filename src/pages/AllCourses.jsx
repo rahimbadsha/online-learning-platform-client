@@ -68,6 +68,10 @@ const AllCourses = () => {
           <option>UI/UX Design</option>
           <option>Data Science</option>
           <option>Programming</option>
+          <option>Mobile App Development</option>
+          <option>Ios Swift UI</option>
+          <option>Flutter</option>
+          <option>Networking</option>
         </select>
       </div>
 
