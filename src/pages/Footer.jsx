@@ -22,7 +22,7 @@ const Footer = () => {
       <div className="flex items-center ">
         <Link
           to="/"
-          className="flex items-center text-2xl font-bold text-primary ml-2 hover:opacity-90"
+          className="flex items-center text-2xl font-bold text-base ml-2 hover:opacity-90"
         >
           <img
             className="w-[30px] h-[30px] mr-2"
